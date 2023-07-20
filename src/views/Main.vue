@@ -5,22 +5,20 @@
         <CommonHeader />
       </el-header>
       <el-main>
-        <CommonMain />
+        <router-view></router-view>
       </el-main>
       <el-footer>
-        <CommonFooter />
+       <CommonFooter />
       </el-footer>
     </el-container>
   </div>
 </template>
 <script>
 import CommonHeader from "../components/CommonHeader.vue";
-import CommonMain from "../components/CommonMain.vue";
 import CommonFooter from "../components/CommonFooter.vue";
 export default {
   components: {
     CommonHeader,
-    CommonMain,
     CommonFooter,
   },
 };
