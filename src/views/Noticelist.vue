@@ -40,7 +40,7 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="less" scoped>
 .comments {
   display: flex;
   width: 1200px;

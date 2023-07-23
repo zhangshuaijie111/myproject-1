@@ -1,33 +1,53 @@
 <template>
   <div class="recommend">
     <!--第一个盒子-->
-    <div class="box">
+    <div class="box" v-for="(message,index) in messages" :key="index">
       <div class="top">
         <img src="../assets/re1.jpg" />
       </div>
-      <p>穿搭分享</p>
+      <p>{{message.shopMsg}}</p>
       <div class="footer">
         <div class="avatar">
           <img src="../assets/reavatar.jpg" />
-          <span>小宇</span>
+          <span>{{message.shopName}}</span>
         </div>
         <div class="like">
           <img src="../assets/aixinbefore.png" />
-          <span>416</span>
+          <span>{{message.shopNumber}}</span>
         </div>
       </div>
     </div>
-    <!--第二个盒子-->
-    <div class="box"></div>
-    <!--第三个盒子-->
-    <div class="box"></div>
   </div>
 </template>
-<style lang="less">
+<script>
+import axios from "axios";
+export default {
+  data(){
+    return {
+      messages:[]
+    }
+  },
+  methods: {
+    fetchdata() {
+      axios.post("http://localhost:8080//api/table/").then((res) => {
+        console.log(res);
+        const message= res.data.data
+        console.log(message)
+        this.messages = message
+      });
+    },
+  },
+  mounted() {
+    this.fetchdata();
+  },
+};
+</script>
+<style lang="less" scoped>
 .recommend {
   display: flex;
   justify-content: space-around;
-  width: 1200px;
+  flex-wrap:wrap;
+  width: 1000px;
   height: 1000px;
   margin: auto;
 
@@ -72,7 +92,6 @@
           width: 20px;
           height: 20px;
           margin-top: 15px;
-          
         }
         span {
           color: #666;

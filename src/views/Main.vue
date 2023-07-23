@@ -10,7 +10,7 @@
       <el-footer>
        <CommonFooter />
       </el-footer>
-    </el-container>
+    </el-container> 
   </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
   },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .el-container {
   .el-header {
     width: 100vw;
