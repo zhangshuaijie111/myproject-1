@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import http from "../utils/request.js";
 export default {
   data(){
     return {
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     fetchdata() {
-      axios.post("http://localhost:8080//api/table/").then((res) => {
+      http.post("/table").then((res) => {
         console.log(res);
         const message= res.data.data
         console.log(message)

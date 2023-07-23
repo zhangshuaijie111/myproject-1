@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const http = axios.create({
     //通用的请求地址前缀
-    baseURL:'/api',
+    baseURL:'localhost:10001/api/',
     timeout:10000,//超时时间
 })
 
@@ -24,6 +24,19 @@ http.interceptors.response.use(function (response) {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
     return Promise.reject(error);
-  });
+});
+
+http(
+  {
+    method: 'post',
+    url: '/user/login',
+    data: {
+      username: 'Fred',
+      password: 'Flintstone'
+    }
+  }
+)
+
 
 export default http
+
